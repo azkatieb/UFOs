@@ -25,7 +25,7 @@ function buildTable(data) {
 
 // 1. Create a variable to keep track of all the filters as an object.
 function handleClick() {
-  // Grab the datetime value from the filter
+  // Grab the value from the filter
   let date = d3.select("#datetime").property("value");
   let city = d3.select("#city").property("value");
   let state = d3.select("#state").property("value");
@@ -41,15 +41,9 @@ function handleClick() {
     // rows where the `datetime` value matches the filter value
     filteredData = filteredData.filter(row => row.datetime === date);
   }
-
-   // Rebuild the table using the filtered data
-  // @NOTE: If no date was entered, then filteredData will
-  // just be the original tableData.
+  
   buildTable(filteredData);
 }
-
-// Build the table when the page loads
-buildTable(tableData);
 
 // 3. Use this function to update the filters. 
 function updateFilters() {
@@ -85,7 +79,7 @@ function updateFilters() {
   }
   
   // 2. Attach an event to listen for changes to each filter
-  
+  d3.selectAll("#enter").on("enter", handleClick);
   
   // Build the table when the page loads
   buildTable(tableData);
