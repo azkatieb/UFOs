@@ -89,3 +89,15 @@ function updateFilters() {
   
   // Build the table when the page loads
   buildTable(tableData);
+
+
+
+
+
+    // Grab the value from the filter
+    let date = d3.select("#datetime").property("value");
+    let city = d3.select("#city").property("value");
+    let state = d3.select("#state").property("value");
+    let country = d3.select("#country").property("value");
+    let shape = d3.select("#shape").property("value");
+    let filteredData = tableData;
